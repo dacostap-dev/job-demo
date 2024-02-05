@@ -66,7 +66,7 @@ class ApplyController extends Controller
 
       $apply->save();
 
-      return Redirect::route('jobs.index')->with('success', 'Trabajo aplicado.');
+      return Redirect::route('apply.index')->with('success', 'Postulado correctamente.');
     } catch (\Throwable $th) {
       //throw $th;
     }

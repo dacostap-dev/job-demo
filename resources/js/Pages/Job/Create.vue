@@ -87,15 +87,6 @@ const submit = () => {
                             class="mt-2"
                             :message="form.errors.salary"
                         />
-
-                        <!-- <file-input
-                            v-model="form.photo"
-                            :error="form.errors.photo"
-                            class="pb-8 pr-6 w-full lg:w-1/2"
-                            type="file"
-                            accept="image/*"
-                            label="Photo"
-                        /> -->
                     </div>
                     <div class="flex items-center justify-end px-8 py-4">
                         <PrimaryButton
@@ -103,7 +94,7 @@ const submit = () => {
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"
                         >
-                            Create Use
+                            Crear trabajo
                         </PrimaryButton>
                     </div>
                 </form>

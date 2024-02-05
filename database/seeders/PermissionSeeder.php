@@ -32,6 +32,7 @@ class PermissionSeeder extends Seeder
 
     //Jobs
     $permission_show_jobs = Permission::create(['name' => 'show:jobs']);
+    $permission_show_detail_jobs = Permission::create(['name' => 'show:detail:jobs']);
     $permission_create_jobs = Permission::create(['name' => 'create:jobs']);
     $permission_update_jobs = Permission::create(['name' => 'update:jobs']);
     $permission_delete_jobs = Permission::create(['name' => 'delete:jobs']);
@@ -46,6 +47,7 @@ class PermissionSeeder extends Seeder
 
     $adminRole->syncPermissions([
       $permission_show_jobs,
+      $permission_show_detail_jobs,
       $permission_create_jobs,
       $permission_update_jobs,
       $permission_delete_jobs

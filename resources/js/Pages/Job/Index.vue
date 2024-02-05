@@ -29,6 +29,11 @@ defineProps({
                 <h1 class="text-3xl font-bold">Trabajos</h1>
 
                 <Link
+                    v-if="
+                        $page.props.auth.user.permissions.includes(
+                            'create:jobs'
+                        )
+                    "
                     class="px-6 py-3 rounded bg-indigo-600 text-white text-sm leading-4 font-bold whitespace-nowrap hover:bg-orange-400 focus:bg-orange-400"
                     href="/jobs/create"
                 >
@@ -87,8 +92,13 @@ defineProps({
                         <td class="w-px border-t">
                             <div class="flex">
                                 <Link
+                                    v-if="
+                                        $page.props.auth.user.permissions.includes(
+                                            'create:apply'
+                                        )
+                                    "
                                     class="flex items-center px-4"
-                                    :href="`/jobs/${job.id}/apply`"
+                                    :href="`/apply/${job.id}`"
                                     tabindex="-1"
                                 >
                                     <button
@@ -99,6 +109,11 @@ defineProps({
                                 </Link>
 
                                 <Link
+                                    v-if="
+                                        $page.props.auth.user.permissions.includes(
+                                            'show:detail:jobs'
+                                        )
+                                    "
                                     class="flex items-center px-4"
                                     :href="`/jobs/${job.id}`"
                                     tabindex="-1"
@@ -114,7 +129,7 @@ defineProps({
                     </tr>
                     <tr v-if="jobs.length === 0">
                         <td class="px-6 py-4 border-t" colspan="4">
-                            No users found.
+                            No hay trabajos.
                         </td>
                     </tr>
                 </table>

@@ -21,7 +21,7 @@ const form = useForm({
 
 const submit = () => {
     form.post(
-        `/jobs/${props.job.id}/apply`,
+        `/apply/${props.job.id}`,
         {
             onFinish: () => form.reset("cv"),
         },

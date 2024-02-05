@@ -18,7 +18,7 @@ import NavLink from "@/Components/NavLink.vue";
                     :class="
                         route().current('dashboard')
                             ? 'fill-white'
-                            : 'fill-indigo-400 group-hover:fill-white'
+                            : 'fill-white/75 group-hover:fill-white'
                     "
                 />
                 Dashboard
@@ -36,13 +36,16 @@ import NavLink from "@/Components/NavLink.vue";
                     :class="
                         route().current('jobs.index')
                             ? 'fill-white'
-                            : 'fill-indigo-400 group-hover:fill-white'
+                            : 'fill-white/75 group-hover:fill-white'
                     "
                 />
                 Trabajos
             </NavLink>
         </div>
-        <div class="mb-4">
+        <div
+            class="mb-4"
+            v-if="$page.props.auth.user.permissions.includes('show:apply')"
+        >
             <NavLink
                 :href="route('apply.index')"
                 :active="route().current('apply.index')"
@@ -54,7 +57,7 @@ import NavLink from "@/Components/NavLink.vue";
                     :class="
                         route().current('applies')
                             ? 'fill-white'
-                            : 'fill-indigo-400 group-hover:fill-white'
+                            : 'fill-white/75 group-hover:fill-white'
                     "
                 />
                 Mis Postulaciones

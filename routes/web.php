@@ -39,10 +39,10 @@ Route::middleware('auth')->group(function () {
 
   Route::resource('/jobs', JobController::class);
 
-  Route::get('/jobs/{job}/apply', [ApplyController::class, 'create'])->name('job.create');
-  Route::post('/jobs/{job}/apply', [ApplyController::class, 'store'])->name('job.store');
+  Route::get('/apply/{job}', [ApplyController::class, 'create'])->name('apply.create')->middleware(['can:create:apply']);
+  Route::post('/apply/{job}', [ApplyController::class, 'store'])->name('apply.store')->middleware(['can:create:apply']);
 
-  Route::get('/applies', [ApplyController::class, 'index'])->name('apply.index');
+  Route::get('/applies', [ApplyController::class, 'index'])->name('apply.index')->middleware(['can:show:apply']);
 });
 
 
